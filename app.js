@@ -6,7 +6,8 @@ const productRoutes = require('./api/routes/product');
 const orderRoutes = require('./api/routes/oders');
 const userRoutes = require('./api/routes/user');
 const menuRoutes = require('./api/routes/menu');
-
+//cors
+const cors = require('cors');
 //Adding morgan
 const morgan = require('morgan');
 //
@@ -22,19 +23,19 @@ app.use((req, res, next)=>{
     }
     next();
 });
-
+app.use(cors());
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({
     extended:false
 }));
 app.use(bodyParser.json());
-app.use('/products', productRoutes);
+app.use('api/products', productRoutes);
 
 app.use('/users', userRoutes);
 
 app.use('/orders', orderRoutes);
 
-app.use('/menuItems', menuRoutes);
+app.use('/api/menuItems', menuRoutes);
 // Error if nothing is found
 app.use((req, res, next)=>{
     const error = new Error('Not found');

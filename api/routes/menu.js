@@ -1,13 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const { MenuItems } = require('../../sequelize');
-router.get("/",(req, res, next)=>{
-    MenuItems.findAll().then(menu => res.json(menu))
-});
+const { getMenuItems } = require('../controller/menuController')
+
+router.get("/",getMenuItems);
 
 router.post("/",(req, res, next)=>{
     const _menuItem = {
         title: req.body.title,
+        key:req.body.key,
+        subHead: req.body.subHead,
         menuUrl: req.body.menuUrl
     }
     MenuItems.create(_menuItem)

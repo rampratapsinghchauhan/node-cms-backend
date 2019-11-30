@@ -17,8 +17,9 @@ sequelize.sync({ force: false })
     .then(() => {
         console.log(`Database & tables created!`)
     })
-const User = UserModel(sequelize, Sequelize)
-const MenuItems = MenuModel(sequelize, Sequelize)
+const User = UserModel(sequelize, Sequelize);
+const MenuItems = MenuModel(sequelize, Sequelize);
+
   module.exports = {
     User, MenuItems
   }

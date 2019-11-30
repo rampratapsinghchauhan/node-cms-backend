@@ -5,7 +5,9 @@ module.exports = (sequelize, type) => {
           primaryKey: true,
           autoIncrement: true
         },
+        key: type.STRING,
         title: type.STRING,
-        menuUrl: type.STRING
-    })
+        subHead: type.STRING,
+        menuUrl: type.STRING 
+    }) 
 }
