@@ -47,6 +47,7 @@ app.use('/plans', express.static('public'));
 app.use('/contactus', express.static('public'));
 app.use('/insights', express.static('public'));
 app.use('/agency', express.static('public'));
+app.use('/cms/*', express.static('public')); 
 //app.use('/agency', express.static('public'));
 // Error if nothing is found
 app.use((req, res, next)=>{
