@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const UserModel = require('./api/models/user')
 const MenuModel = require('./api/models/menuItems')
-
+const HomePageModel = require('./api/models/pages/homePage')
 const sequelize = new Sequelize('cms_db','root','root',{
     host: 'localhost',
     dialect: 'mysql',
@@ -19,7 +19,7 @@ sequelize.sync({ force: false })
     })
 const User = UserModel(sequelize, Sequelize);
 const MenuItems = MenuModel(sequelize, Sequelize);
-
+const HomePage = HomePageModel(sequelize, Sequelize);
   module.exports = {
-    User, MenuItems
+    User, MenuItems, HomePage
   }

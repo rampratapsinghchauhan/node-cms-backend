@@ -6,6 +6,7 @@ const productRoutes = require('./api/routes/product');
 const orderRoutes = require('./api/routes/oders');
 const userRoutes = require('./api/routes/user');
 const menuRoutes = require('./api/routes/menu');
+const homePageRoutes = require('./api/routes/homePage');
 //cors
 const cors = require('cors');
 //Adding morgan
@@ -36,6 +37,17 @@ app.use('/users', userRoutes);
 app.use('/orders', orderRoutes);
 
 app.use('/api/menuItems', menuRoutes);
+app.use('/api/homePage', homePageRoutes);
+
+//expose static files
+app.use('/', express.static('public')); 
+app.use('/services', express.static('public'));
+app.use('/seo', express.static('public'));
+app.use('/plans', express.static('public'));
+app.use('/contactus', express.static('public'));
+app.use('/insights', express.static('public'));
+app.use('/agency', express.static('public'));
+//app.use('/agency', express.static('public'));
 // Error if nothing is found
 app.use((req, res, next)=>{
     const error = new Error('Not found');
