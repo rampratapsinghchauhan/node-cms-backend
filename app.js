@@ -44,7 +44,7 @@ app.use('/', express.static('public'));
 app.use('/services', express.static('public'));
 app.use('/seo', express.static('public'));
 app.use('/plans', express.static('public'));
-app.use('/contactus', express.static('public'));
+app.use('/contactus', express.static('public')); 
 app.use('/insights', express.static('public'));
 app.use('/agency', express.static('public'));
 app.use('/cms/*', express.static('public')); 
